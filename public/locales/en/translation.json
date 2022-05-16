@@ -1,0 +1,23 @@
+{
+  "invitation": "Welcome in my Application",
+  "list": {
+    "name": "Name",
+    "item": {
+      "item": "Item",
+      "title": "Title",
+      "deadline": "Deadline",
+      "active": "active",
+      "finished": "finished"
+    }
+  },
+  "common": {
+    "add": "Add",
+    "create": "Create",
+    "new": "New",
+    "delete": "Remove",
+    "markAs": "mark as",
+    "search": "Search",
+    "filter": "Filter",
+    "back": "Back"
+  }
+}

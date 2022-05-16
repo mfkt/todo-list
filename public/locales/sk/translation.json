@@ -1,0 +1,23 @@
+{
+  "invitation": "Vitajte v mojej Aplikácií",
+  "list": {
+    "name": "Názov",
+    "item": {
+      "item": "Položka",
+      "title": "Titulok",
+      "deadline": "Termín dokončenia",
+      "active": "aktívny",
+      "finished": "ukončeny"
+    }
+  },
+  "common": {
+    "add": "Pridať",
+    "create": "Vytvoriť",
+    "new": "Novy",
+    "delete": "Vymazať",
+    "markAs": "Označiť ako",
+    "search": "Vyhladať",
+    "filter": "Filtrované",
+    "back": "Späť"
+  }
+}

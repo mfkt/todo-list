@@ -1,11 +1,28 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import './App.css';
+import { useTranslation } from 'react-i18next';
+import LandPage from './styles/components/LandPage';
+import CardStyle from './styles/components/CardStyle';
+import { useNavigate } from 'react-router-dom';
 
-function App() {
+const App = () => {
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const handleRedirect = () => {
+    navigate('/dashboard');
+  };
+
   return (
-
+    <LandPage
+      landHeadline={t('invitation')}
+      description={t('description')}
+      footer={t('footer')}
+    >
+      <div onClick={handleRedirect}>
+        <CardStyle title={t('todo')} color='red' />
+      </div>
+    </LandPage>
   );
-}
+};
 
 export default App;
