@@ -1,7 +1,8 @@
 import React from 'react';
+import HeaderStyle from '../styles/components/HeaderStyle';
 
 const Header: React.FC = () => {
-  return <div>Header</div>;
+  return <HeaderStyle>Hura Header</HeaderStyle>;
 };
 
 export default Header;

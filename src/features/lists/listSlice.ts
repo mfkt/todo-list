@@ -5,7 +5,6 @@ import {
   ActionReducerMapBuilder
 } from '@reduxjs/toolkit';
 import { ListDto } from '../../model/listDto';
-import { ItemDto } from '../../model/itemDto';
 import { NoInfer } from '@reduxjs/toolkit/dist/tsHelpers';
 
 const axios = require('axios');
@@ -30,22 +29,6 @@ export const listSlice = createSlice({
   reducers: {
     reload: (state: State) => {
       state.status = 'idle';
-    },
-    addItem: (state: State, action: PayloadAction<ItemDto>) => {
-      if (state.selectedList) {
-        state.selectedList.items.push(action.payload);
-      }
-    },
-    markItem: (state: State, action: PayloadAction<number>) => {
-      const itemToEdit: ItemDto | undefined = state.selectedList?.items.find(
-        (item: ItemDto) => item.id === action.payload
-      );
-      if (itemToEdit) {
-        itemToEdit.state = 'FINISHED';
-      }
-    },
-    removeItem: (state: State, action: PayloadAction<number>) => {
-      console.log(action.payload);
     },
     selectList: (state: State, action: PayloadAction<number>) => {
       state.selectedList = state.list.find(
@@ -89,6 +72,10 @@ export const listSlice = createSlice({
           list.name = action.payload.name;
           list.items = action.payload.items;
         }
+        if (state.selectedList) {
+          state.selectedList.name = action.payload.name;
+          state.selectedList.items = action.payload.items;
+        }
       })
       .addCase(putList.rejected, (state: State, action) => {
         state.status = 'failed';
@@ -98,8 +85,7 @@ export const listSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { reload, selectList, addItem, markItem, removeItem } =
-  listSlice.actions;
+export const { reload, selectList } = listSlice.actions;
 
 export default listSlice.reducer;
 

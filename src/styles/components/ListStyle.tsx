@@ -1,33 +1,34 @@
 import React from 'react';
+import { Card, Grid, CardContent, CardActions } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import CheckSharpIcon from '@mui/icons-material/CheckSharp';
 import { ListDto } from '../../model/listDto';
-// @ts-ignore
-import styled from 'styled-components';
 
 type Props = {
+  onSelectList: (listId: number) => void;
+  selectedList: boolean;
   list: ListDto;
 };
 
-const Body = styled.div`
-  width: 100%;
-  background: lightgray;
-`;
-
-const Header = styled.div`
-  width: 100%;
-  background: lightgray;
-`;
-
-const Footer = styled.div`
-  width: 100%;
-  background: lightgray;
-`;
-
-const ListStyle: React.FC<Props> = (props) => {
+const ListStyle: React.FC<Props> = (props: Props) => {
   return (
-    <Body>
-      <Header>Item</Header>
-      <Footer>Footer</Footer>
-    </Body>
+    <Grid item xs={6} md={6}>
+      <Card
+        style={{ cursor: 'pointer' }}
+        sx={{ minWidth: 120 }}
+        onClick={() => props.onSelectList(props.list.id)}
+      >
+        <CardContent>
+          <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
+            {props.list.name}
+          </Typography>
+          <Typography sx={{ mb: 1.5 }} color='text.secondary'>
+            {`Items count: ${props.list.items.length}`}
+          </Typography>
+        </CardContent>
+        <CardActions>{props.selectedList && <CheckSharpIcon />}</CardActions>
+      </Card>
+    </Grid>
   );
 };
 

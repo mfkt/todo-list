@@ -1,38 +1,83 @@
 // @ts-ignore
-import React, { JSX } from 'react';
+import React, { JSX, useState } from 'react';
 // @ts-ignore
 import styled from 'styled-components';
+import { Grid, MenuItem, TextField } from '@mui/material';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-type Props = {
+// components
+import CreateItem from '../../components/CreateItem';
+
+// import theme from 'theme';
+import { Right, Left } from './LayoutStyle';
+
+interface Props {
+  headline: string;
+  onItemStateChange: (state: string) => void;
+  onFilterStateChange: (state: string) => void;
   children?: JSX.Element | JSX.Element[];
-};
+}
 
 const Body = styled.div`
-  width: 100%;
+  padding: 1em;
   background: lightgray;
 `;
 
-const Header = styled.div`
-  width: 100%;
+const Headline = styled.h3`
+  margin-bottom: 1em;
   background: lightgray;
 `;
 
 const Footer = styled.div`
-  width: 100%;
+  margin-top: 2em;
   background: lightgray;
 `;
 
-const Container = styled.div`
-  width: 100%;
-  padding-top: 4em;
-  padding-bottom: 4em;
-`;
+const ItemsStyle: React.FC<Props> = (props: Props) => {
+  const [itemState, setItemState] = useState<string>('ALL');
+  const [filterState, setFilterState] = useState<string>('');
 
-const ItemsStyle: React.FC<Props> = (props) => {
+  const handleSelectChange = (event: SelectChangeEvent) => {
+    setItemState(event.target.value);
+    return props.onItemStateChange(event.target.value);
+  };
+
+  const handleInputChange = (event: { target: { value: string } }) => {
+    setFilterState(event.target.value);
+    return props.onFilterStateChange(event.target.value);
+  };
+
   return (
     <Body>
-      <Header>Items</Header>
-      <Container>{props.children}</Container>
+      <Left>
+        <Headline>{props.headline}</Headline>
+      </Left>
+      <Left>
+        <CreateItem />
+      </Left>
+      <Right>
+        <TextField
+          value={filterState}
+          onChange={handleInputChange}
+          id='searchField'
+          label='searchField'
+          variant='standard'
+        />
+        <Select
+          aria-label='itemsState'
+          id='itemsState'
+          variant='standard'
+          value={itemState}
+          onChange={handleSelectChange}
+        >
+          <MenuItem value='ALL'>All</MenuItem>
+          <MenuItem value='ACTIVE'>Active</MenuItem>
+          <MenuItem value='FINISHED'>Finished</MenuItem>
+        </Select>
+      </Right>
+      <Grid container spacing={2}>
+        {props.children}
+      </Grid>
       <Footer>Footer</Footer>
     </Body>
   );
