@@ -1,16 +1,24 @@
 import React, { useEffect } from 'react';
-import ListsStyle from '../styles/components/ListsStyle';
+
+// redux
 import { RootState } from '../store/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { postList, fetchLists } from '../features/lists/listSlice';
+
+// interfaces
 import { ListDto } from '../model/listDto';
-import List from './List';
+
+// components
 import ProgressStyle from '../styles/components/ProgressStyle';
+import ListsStyle from '../styles/components/ListsStyle';
+import List from './List';
+import { Center } from '../styles/components/LayoutStyle';
 
 const Lists: React.FC = () => {
   const dispatch = useDispatch();
   const list = useSelector((state: RootState) => state.data.list);
   const status = useSelector((state: RootState) => state.data.status);
+  const error = useSelector((state: RootState) => state.data.error);
 
   useEffect(() => {
     if (status === 'idle') {
@@ -40,7 +48,7 @@ const Lists: React.FC = () => {
       </ListsStyle>
     );
   } else {
-    return <div>error</div>;
+    return <Center>{error}</Center>;
   }
 };
 

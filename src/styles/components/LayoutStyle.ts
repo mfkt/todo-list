@@ -1,12 +1,35 @@
 // @ts-ignore
 import styled from 'styled-components';
 
-const Left = styled.span`
-  float: left;
+const Container = styled.div`
+  display: inline-flex;
+  margin-bottom: 0.6em;
+  width: 100%;
 `;
 
-const Right = styled.span`
-  float: right;
+const Left = styled.div`
+  display: flex;
+  padding-left: 0.4em;
+  width: 50%;
+  flex-direction: row;
 `;
 
-export { Left, Right };
+const Right = styled.div`
+  display: flex;
+  padding-right: 0.4em;
+  width: 50%;
+  flex-direction: row-reverse;
+`;
+
+const Center = styled.div`
+  display: block;
+  padding-top: 4em;
+  padding-bottom: 4em;
+  text-align: center;
+`;
+
+const Headline = styled.h3`
+  margin-bottom: 1em;
+`;
+
+export { Left, Right, Container, Center, Headline };

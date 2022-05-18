@@ -59,7 +59,7 @@ const CreateItem: React.FC = () => {
       }, 400);
       if (selectedList) {
         const itemToAdd: ItemDto = {
-          id: 12,
+          id: values.title,
           title: values.title,
           text: values.text,
           deadline: convertDateToString(values.deadline.toString()),
@@ -84,8 +84,8 @@ const CreateItem: React.FC = () => {
 
   return (
     <>
-      <IconButton aria-label='addItem' size='small' onClick={handleOpenModal}>
-        <AddCircleRoundedIcon fontSize='medium' />
+      <IconButton aria-label='addItem' size='large' onClick={handleOpenModal}>
+        <AddCircleRoundedIcon fontSize='large' />
       </IconButton>
       <Modal
         open={openedModal}

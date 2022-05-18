@@ -12,11 +12,11 @@ import { ItemDto } from '../../model/itemDto';
 
 // themes
 import theme from '../theme';
-import { Left, Right } from './LayoutStyle';
+import { Left, Right, Container } from './LayoutStyle';
 
 interface Props {
-  onRemoveItem: (itemId: number) => void;
-  onMarkAsFinishedItem: (itemId: number) => void;
+  onRemoveItem: (itemId: string) => void;
+  onMarkAsFinishedItem: (itemId: string) => void;
   item: ItemDto;
 }
 
@@ -49,58 +49,62 @@ const ItemStyle: React.FC<Props> = (props: Props) => {
   return (
     <Grid item xs={12} md={12}>
       <Section>
-        <Left>
-          <Def>{props.item.title}</Def>
-        </Left>
-        <Right>
-          {!expanded ? (
-            <IconButton
-              aria-label='left'
-              size='small'
-              onClick={handleExpandingItem}
-            >
-              <KeyboardArrowLeftIcon />
-            </IconButton>
-          ) : (
-            <IconButton
-              aria-label='down'
-              size='small'
-              onClick={handleExpandingItem}
-            >
-              <KeyboardArrowDownIcon />
-            </IconButton>
-          )}
-        </Right>
-        <Right>
-          <State>{props.item.state}</State>
-        </Right>
+        <Container>
+          <Left>
+            <Def>{props.item.title}</Def>
+          </Left>
+          <Right>
+            {!expanded ? (
+              <IconButton
+                aria-label='left'
+                size='small'
+                onClick={handleExpandingItem}
+              >
+                <KeyboardArrowLeftIcon />
+              </IconButton>
+            ) : (
+              <IconButton
+                aria-label='down'
+                size='small'
+                onClick={handleExpandingItem}
+              >
+                <KeyboardArrowDownIcon />
+              </IconButton>
+            )}
+            <State>{props.item.state}</State>
+          </Right>
+        </Container>
       </Section>
       <Section>
-        <Def>{props.item.text ? props.item.text : 'Not defined'}</Def>
+        <Container>
+          <Def>{props.item.text ? props.item.text : 'Not defined'}</Def>
+        </Container>
       </Section>
       {expanded && (
         <Section>
-          <Left>
-            <Def>{`deadline: ${props.item.deadline}`}</Def>
-          </Left>
-          <Right>
-            {props.item.state === 'ACTIVE' && (
+          <Container>
+            <Left>
+              <Def>{`deadline: ${props.item.deadline}`}</Def>
+            </Left>
+            <Right>
+              {props.item.state === 'ACTIVE' && (
+                <IconButton
+                  aria-label='check'
+                  size='small'
+                  onClick={() => props.onMarkAsFinishedItem(props.item.id)}
+                >
+                  <CheckIcon />
+                </IconButton>
+              )}
               <IconButton
-                aria-label='check'
+                aria-label='delete'
                 size='small'
-                onClick={() => props.onMarkAsFinishedItem(props.item.id)}
+                onClick={() => props.onRemoveItem(props.item.id)}
               >
-                <CheckIcon />
+                <DeleteIcon />
               </IconButton>
-            )}
-            <IconButton
-              aria-label='delete'
-              size='small'
-              onClick={() => props.onRemoveItem(props.item.id)}
-            >
-              <DeleteIcon />
-            </IconButton>
-          </Right>
+            </Right>
+          </Container>
         </Section>
       )}
     </Grid>

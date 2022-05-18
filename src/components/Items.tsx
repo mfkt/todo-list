@@ -9,6 +9,7 @@ import {
   getItemsByState,
   sortToNextDeadline
 } from '../utils/arrayUtils';
+import { Center } from '../styles/components/LayoutStyle';
 
 const Items: React.FC = () => {
   const [itemState, setItemState] = useState<string>('ALL');
@@ -48,15 +49,12 @@ const Items: React.FC = () => {
         onFilterStateChange={handleFilterState}
         onItemStateChange={handleItemsState}
       >
-        {items.length > 0 ? (
-          items.map((item: ItemDto) => <Item item={item} key={item.title} />)
-        ) : (
-          <div>Is Empty!</div>
-        )}
+        {items.length > 0 &&
+          items.map((item: ItemDto) => <Item item={item} key={item.title} />)}
       </ItemsStyle>
     );
   } else {
-    return <div>Not selected!</div>;
+    return <Center>Not selected!</Center>;
   }
 };
 

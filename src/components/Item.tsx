@@ -14,7 +14,7 @@ const Item: React.FC<Props> = (props: Props) => {
   const selectedList = useSelector(
     (state: RootState) => state.data.selectedList
   );
-  const handleRemoveItem = (itemId: number) => {
+  const handleRemoveItem = (itemId: string) => {
     console.log(itemId);
     if (selectedList) {
       const newItemArray = selectedList.items.filter(
@@ -25,7 +25,7 @@ const Item: React.FC<Props> = (props: Props) => {
     }
   };
 
-  const handleMarkAsFinishedItem = (itemId: number) => {
+  const handleMarkAsFinishedItem = (itemId: string) => {
     console.log(itemId);
     if (selectedList) {
       const newItemArray = selectedList.items.map((item: ItemDto) => {

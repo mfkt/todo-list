@@ -1,5 +1,5 @@
 export interface ItemDto {
-  id: number;
+  id: string;
   title: string;
   text?: string;
   deadline: string;

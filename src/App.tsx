@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import LandPage from './styles/components/LandPage';
 import CardStyle from './styles/components/CardStyle';
 import { useNavigate } from 'react-router-dom';
+import Header from './components/Header';
 
 const App = () => {
   const navigate = useNavigate();
@@ -13,15 +14,18 @@ const App = () => {
   };
 
   return (
-    <LandPage
-      landHeadline={t('invitation')}
-      description={t('description')}
-      footer={t('footer')}
-    >
-      <div onClick={handleRedirect}>
-        <CardStyle title={t('todo')} color='red' />
-      </div>
-    </LandPage>
+    <>
+      <Header />
+      <LandPage
+        landHeadline={t('invitation')}
+        description={t('description')}
+        footer={t('footer')}
+      >
+        <div onClick={handleRedirect}>
+          <CardStyle title={t('todo')} color='red' />
+        </div>
+      </LandPage>
+    </>
   );
 };
 

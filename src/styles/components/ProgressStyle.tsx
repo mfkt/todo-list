@@ -2,13 +2,14 @@
 import React from 'react';
 // @ts-ignore
 // import styled from 'styled-components';
-import { CircularProgress, Box } from '@mui/material';
+import { CircularProgress } from '@mui/material';
+import { Center } from './LayoutStyle';
 
 const ProgressStyle: React.FC = () => {
   return (
-    <Box sx={{ width: 300, height: 300, display: 'flex' }}>
+    <Center>
       <CircularProgress />
-    </Box>
+    </Center>
   );
 };
 

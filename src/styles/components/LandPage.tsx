@@ -12,17 +12,14 @@ type Props = {
 
 const Body = styled.div`
   width: 100%;
-  background: lightgray;
 `;
 
 const Header = styled.div`
   width: 100%;
-  background: lightgray;
 `;
 
 const Footer = styled.div`
   width: 100%;
-  background: lightgray;
 `;
 
 const Container = styled.div`
