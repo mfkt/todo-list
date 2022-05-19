@@ -8,11 +8,15 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <Header />
-      <Grid container spacing={4} style={{ height: 200 }}>
-        <Grid item xs={6} md={7}>
+      <Grid
+        container
+        spacing={2}
+        style={{ paddingLeft: 16, paddingRight: 16, marginTop: 2 }}
+      >
+        <Grid item xs={12} md={7}>
           <Lists />
         </Grid>
-        <Grid item xs={6} md={5}>
+        <Grid item xs={12} md={5}>
           <Items />
         </Grid>
       </Grid>

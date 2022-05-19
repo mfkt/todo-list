@@ -1,9 +1,12 @@
 import React from 'react';
-import { ItemDto } from '../model/itemDto';
-import ItemStyle from '../styles/components/ItemStyle';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { putList } from '../features/lists/listSlice';
+
+import { ItemDto } from '../model/itemDto';
+
+import ItemStyle from '../styles/components/ItemStyle';
 
 interface Props {
   item: ItemDto;

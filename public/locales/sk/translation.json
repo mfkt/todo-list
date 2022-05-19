@@ -1,22 +1,32 @@
 {
-  "invitation": "Vitajte v mojej Aplikácií",
+  "invitation": "Vitajte v Aplikácií",
+  "footer": "Vytvoril Martin Fekete v 2022",
   "todoApp": "TO DO aplikácia",
+  "TODOLists": "TODO zoznam",
+  "CreateTODOItem": "Novy TODO zoznam",
+  "NotSelected": "Nezvolene",
+  "notDefined": "Nedefinovany",
   "list": {
     "name": "Názov",
+    "itemsCount": "pocet poloziek",
     "item": {
       "item": "Položka",
       "title": "Titulok",
       "deadline": "Termín dokončenia",
-      "active": "aktívny",
-      "finished": "ukončeny"
+      "all": "Vsetky",
+      "active": "Aktivne",
+      "finished": "Ukoncene"
     }
   },
   "common": {
+    "hide": "Skryť",
+    "expand": "Expandovať",
     "add": "Pridať",
     "create": "Vytvoriť",
     "new": "Novy",
+    "close": "Zavriet",
     "delete": "Vymazať",
-    "markAs": "Označiť ako",
+    "markAs": "Označiť ako ukončené",
     "search": "Vyhladať",
     "filter": "Filtrované",
     "back": "Späť"

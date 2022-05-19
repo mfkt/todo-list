@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react';
 
-// redux
+import { useTranslation } from 'react-i18next';
 import { RootState } from '../store/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { postList, fetchLists } from '../features/lists/listSlice';
 
-// interfaces
 import { ListDto } from '../model/listDto';
 
-// components
 import ProgressStyle from '../styles/components/ProgressStyle';
 import ListsStyle from '../styles/components/ListsStyle';
 import List from './List';
+
 import { Center } from '../styles/components/LayoutStyle';
 
 const Lists: React.FC = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const list = useSelector((state: RootState) => state.data.list);
   const status = useSelector((state: RootState) => state.data.status);
@@ -41,7 +41,7 @@ const Lists: React.FC = () => {
     return <ProgressStyle />;
   } else if (status === 'succeeded') {
     return (
-      <ListsStyle headline='TODO lists' onCreateList={handleCreateList}>
+      <ListsStyle headline={t('TODOLists')} onCreateList={handleCreateList}>
         {list.map((list: ListDto) => (
           <List list={list} key={list.id} />
         ))}

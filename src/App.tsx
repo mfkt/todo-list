@@ -16,11 +16,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <LandPage
-        landHeadline={t('invitation')}
-        description={t('description')}
-        footer={t('footer')}
-      >
+      <LandPage landHeadline={t('invitation')} footer={t('footer')}>
         <div onClick={handleRedirect}>
           <CardStyle title={t('todo')} color='red' />
         </div>

@@ -1,22 +1,32 @@
 {
-  "invitation": "Welcome in my Application",
+  "invitation": "Welcome in Application",
+  "footer": "Created by Martin Fekete in 2022",
   "todoApp": "TO DO Application",
+  "TODOLists": "TODO list",
+  "CreateTODOItem": "New TODO list",
+  "NotSelected": "Not selected",
+  "notDefined": "Not defined",
   "list": {
     "name": "Name",
+    "itemsCount": "Items count",
     "item": {
       "item": "Item",
       "title": "Title",
       "deadline": "Deadline",
-      "active": "active",
-      "finished": "finished"
+      "all": "All",
+      "active": "Active",
+      "finished": "Finished"
     }
   },
   "common": {
+    "hide": "Hide",
+    "expand": "Expand",
     "add": "Add",
     "create": "Create",
     "new": "New",
+    "close": "Close",
     "delete": "Remove",
-    "markAs": "mark as",
+    "markAs": "mark as finished",
     "search": "Search",
     "filter": "Filter",
     "back": "Back"

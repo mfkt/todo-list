@@ -1,5 +1,6 @@
 // @ts-ignore
 import styled from 'styled-components';
+import theme from '../theme';
 
 const Container = styled.div`
   display: inline-flex;
@@ -30,6 +31,7 @@ const Center = styled.div`
 
 const Headline = styled.h3`
   margin-bottom: 1em;
+  color: ${theme.colors.grey};
 `;
 
 export { Left, Right, Container, Center, Headline };

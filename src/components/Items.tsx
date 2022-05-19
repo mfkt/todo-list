@@ -1,17 +1,23 @@
 import React, { useMemo, useState } from 'react';
+
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import { ItemDto } from '../model/itemDto';
-import Item from './Item';
-import ItemsStyle from '../styles/components/ItemsStyle';
 import {
   getItemsBySearchText,
   getItemsByState,
   sortToNextDeadline
 } from '../utils/arrayUtils';
+
 import { Center } from '../styles/components/LayoutStyle';
+import { useTranslation } from 'react-i18next';
+
+import { ItemDto } from '../model/itemDto';
+
+import ItemsStyle from '../styles/components/ItemsStyle';
+import Item from './Item';
 
 const Items: React.FC = () => {
+  const { t } = useTranslation();
   const [itemState, setItemState] = useState<string>('ALL');
   const [filterState, setFilterState] = useState<string>('');
   const selectedList = useSelector(
@@ -45,7 +51,7 @@ const Items: React.FC = () => {
   if (selectedList) {
     return (
       <ItemsStyle
-        headline={`${selectedList.name} items`}
+        headline={`${selectedList.name} ${t('item')}`}
         onFilterStateChange={handleFilterState}
         onItemStateChange={handleItemsState}
       >
@@ -54,7 +60,7 @@ const Items: React.FC = () => {
       </ItemsStyle>
     );
   } else {
-    return <Center>Not selected!</Center>;
+    return <Center>{t('NotSelected')}</Center>;
   }
 };
 

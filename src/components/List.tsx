@@ -1,9 +1,11 @@
 import React from 'react';
-import { ListDto } from '../model/listDto';
-import ListStyle from '../styles/components/ListStyle';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { selectList } from '../features/lists/listSlice';
+
+import { ListDto } from '../model/listDto';
+import ListStyle from '../styles/components/ListStyle';
 
 interface Props {
   list: ListDto;

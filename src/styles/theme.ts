@@ -23,7 +23,7 @@ const lineHeights = {
 
 /** Radius */
 const radii = {
-  button: '2px',
+  button: '6px',
   rounded: '48px'
 };
 
@@ -44,13 +44,14 @@ const theme = {
   fontWeights,
   lineHeights,
   colors: {
-    black: '#000',
-    white: '#fff',
-    transparent: 'transparent',
-    blue: '#1862FD',
-    gray: '#aaa',
-    red: '#eb5757',
-    orange: '#fca503'
+    dark: '#222831',
+    grey: '#393E46',
+    accent: '#00ADB5',
+    light: '#EEEEEE',
+    success: '#198754',
+    warning: '#FFCC00',
+    error: '#D11800',
+    transparent: 'transparent'
   },
   radii
 };
